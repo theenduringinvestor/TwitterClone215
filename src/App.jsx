@@ -1,19 +1,25 @@
 import Header from "./components/Header";
 import Signin from "./components/Signin";
+import SignUp from "./components/SignUp";
 import Dashboard from "./components/Dashboard";
 import "./App.css";
 import { useState } from "react";
 
 function App() {
-  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [view, setView] = useState("signin");
 
   return (
     <main className="app">
       <Header />
-      {isSignedIn ? (
+      {view === "dashboard" ? (
         <Dashboard />
+      ) : view === "signup" ? (
+        <SignUp onSignIn={() => setView("signin")} />
       ) : (
-        <Signin onSignedIn={() => setIsSignedIn(true)} />
+        <Signin
+          onSignedIn={() => setView("dashboard")}
+          onSignUp={() => setView("signup")}
+        />
       )}
     </main>
   );

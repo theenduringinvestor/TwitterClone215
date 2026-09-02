@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../styles/Signin.css";
 
-function Signin({ onSignedIn }) {
+function Signin({ onSignedIn, onSignUp }) {
   function handleSignIn() {
     if (!email && !password) {
       console.log("Please enter your email and password.");
@@ -38,8 +38,12 @@ function Signin({ onSignedIn }) {
           Sign In
         </button>
         <p>
-          Don't have an account? <button type="button">Sign up</button>
+          Don't have an account?{" "}
+          <button type="button" onClick={onSignUp}>
+            Sign up
+          </button>
         </p>
+        <button type="button">Forgot password?</button>
       </div>
     </div>
   );
