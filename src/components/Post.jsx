@@ -1,15 +1,42 @@
-function Post() {
+function Post({ post, onDelete }) {
+  const isOwnPost = post.handle === "@alexmorgan";
+
   return (
-    <div>
-      <h2>@username</h2>
-      <p>This is my first post.</p>
-      <button type="button">Reply</button>
-      <button type="button">Repost</button>
-      <button type="button">Like</button>
-      <button type="button">Bookmark</button>
-      <button type="button">Share</button>
-      <button type="button">Views</button>
-    </div>
+    <article className="post">
+      <span className={`avatar avatar--${post.avatar.toLowerCase()}`}>
+        {post.avatar}
+      </span>
+      <div className="post__content">
+        <div className="post__meta">
+          <strong>{post.name}</strong>
+          <span>{post.handle}</span>
+          <span>·</span>
+          <span>{post.time}</span>
+          {isOwnPost ? (
+            <button type="button" onClick={() => onDelete(post.id)}>
+              Delete
+            </button>
+          ) : (
+            <button type="button" aria-label={`More options for ${post.name}`}>
+              •••
+            </button>
+          )}
+        </div>
+        <p>{post.text}</p>
+        <div className="post__actions">
+          <button type="button">
+            ♡ <span>{post.comments}</span>
+          </button>
+          <button type="button">
+            ♧ <span>{post.reposts}</span>
+          </button>
+          <button type="button">
+            ♡ <span>{post.likes}</span>
+          </button>
+          <button type="button">↗</button>
+        </div>
+      </div>
+    </article>
   );
 }
 

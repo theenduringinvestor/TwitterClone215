@@ -3,6 +3,7 @@ import Signin from "./components/Signin";
 import SignUp from "./components/SignUp";
 import Dashboard from "./components/Dashboard";
 import "./App.css";
+import "./firebase";
 import { useState } from "react";
 
 function App() {
@@ -10,16 +11,21 @@ function App() {
 
   return (
     <main className="app">
-      <Header />
       {view === "dashboard" ? (
         <Dashboard />
       ) : view === "signup" ? (
-        <SignUp onSignIn={() => setView("signin")} />
+        <>
+          <Header />
+          <SignUp onSignIn={() => setView("signin")} />
+        </>
       ) : (
-        <Signin
-          onSignedIn={() => setView("dashboard")}
-          onSignUp={() => setView("signup")}
-        />
+        <>
+          <Header />
+          <Signin
+            onSignedIn={() => setView("dashboard")}
+            onSignUp={() => setView("signup")}
+          />
+        </>
       )}
     </main>
   );
