@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "../styles/Signin.css";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
 
 function Signin({ onSignedIn, onSignUp }) {
-  function handleSignIn() {
+  async function handleSignIn() {
     if (!email && !password) {
       console.log("Please enter your email and password.");
     } else if (!email) {
@@ -10,9 +12,13 @@ function Signin({ onSignedIn, onSignUp }) {
     } else if (!password) {
       console.log("Please enter your password.");
     } else {
-      console.log("Sign In successful.");
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        onSignedIn();
+      } catch (error) {
+        console.error(error);
+      }
     }
-    onSignedIn();
   }
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

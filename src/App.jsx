@@ -3,15 +3,25 @@ import Signin from "./components/Signin";
 import SignUp from "./components/SignUp";
 import Dashboard from "./components/Dashboard";
 import "./App.css";
-import "./firebase";
-import { useState } from "react";
+import { auth } from "./firebase";
+import { useEffect, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
 
 function App() {
   const [view, setView] = useState("signin");
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+
+    return unsubscribe;
+  }, []);
 
   return (
     <main className="app">
-      {view === "dashboard" ? (
+      {user ? (
         <Dashboard />
       ) : view === "signup" ? (
         <>

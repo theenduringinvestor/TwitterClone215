@@ -1,5 +1,7 @@
 import "../styles/Dashboard.css";
 import { useRef, useState } from "react";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
 import Rightbar from "./Rightbar";
 import Sidebar from "./Sidebar";
 import Timeline from "./Timeline";
@@ -73,8 +75,15 @@ function Dashboard() {
     );
   }
 
+  async function handleLogout() {
+    await signOut(auth);
+  }
+
   return (
     <section className="dashboard" aria-label="Home timeline">
+      <button type="button" onClick={handleLogout}>
+        Log out
+      </button>
       <Sidebar onCompose={() => composerRef.current?.focus()} />
       <Timeline
         posts={timelinePosts}
