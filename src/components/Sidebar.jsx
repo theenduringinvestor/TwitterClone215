@@ -10,7 +10,7 @@ const navItems = [
   ["•••", "More"],
 ];
 
-function Sidebar({ onCompose }) {
+function Sidebar({ onCompose, onLogout }) {
   return (
     <aside className="dashboard__sidebar">
       <img className="dashboard__logo" src={xLogo} alt="X" />
@@ -41,6 +41,9 @@ function Sidebar({ onCompose }) {
         </span>
         <span aria-hidden="true">•••</span>
       </div>
+      <button type="button" onClick={onLogout}>
+        Log out
+      </button>
     </aside>
   );
 }

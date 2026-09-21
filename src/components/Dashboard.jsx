@@ -81,10 +81,10 @@ function Dashboard() {
 
   return (
     <section className="dashboard" aria-label="Home timeline">
-      <button type="button" onClick={handleLogout}>
-        Log out
-      </button>
-      <Sidebar onCompose={() => composerRef.current?.focus()} />
+      <Sidebar
+        onCompose={() => composerRef.current?.focus()}
+        onLogout={handleLogout}
+      />
       <Timeline
         posts={timelinePosts}
         composerRef={composerRef}
