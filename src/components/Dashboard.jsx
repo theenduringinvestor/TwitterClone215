@@ -6,38 +6,7 @@ import Rightbar from "./Rightbar";
 import Sidebar from "./Sidebar";
 import Timeline from "./Timeline";
 
-const posts = [
-  {
-    name: "X",
-    handle: "@X",
-    time: "2h",
-    avatar: "X",
-    text: "What is happening?!",
-    comments: "1.2K",
-    reposts: "4.8K",
-    likes: "28K",
-  },
-  {
-    name: "Design Daily",
-    handle: "@designdaily",
-    time: "4h",
-    avatar: "D",
-    text: "The best interfaces get out of the way and let the idea take the stage.",
-    comments: "84",
-    reposts: "312",
-    likes: "2.6K",
-  },
-  {
-    name: "Tech News",
-    handle: "@technews",
-    time: "6h",
-    avatar: "T",
-    text: "A little progress every day adds up to something remarkable.",
-    comments: "219",
-    reposts: "740",
-    likes: "5.1K",
-  },
-];
+const posts = [];
 
 function Dashboard() {
   const [timelinePosts, setTimelinePosts] = useState(posts);
