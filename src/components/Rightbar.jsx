@@ -7,24 +7,6 @@ function Rightbar() {
       </label>
       <section className="side-panel trends">
         <h2>What’s happening</h2>
-        <div className="trend">
-          <small>Trending in Technology</small>
-          <strong>Artificial Intelligence</strong>
-          <small>12.4K posts</small>
-        </div>
-        <div className="trend">
-          <small>Trending</small>
-          <strong>Design systems</strong>
-          <small>8,921 posts</small>
-        </div>
-        <div className="trend">
-          <small>Trending in Business</small>
-          <strong>Productivity</strong>
-          <small>5,204 posts</small>
-        </div>
-        <button className="show-more" type="button">
-          Show more
-        </button>
       </section>
     </aside>
   );
