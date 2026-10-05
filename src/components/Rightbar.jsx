@@ -5,14 +5,6 @@ function Rightbar() {
         <span aria-hidden="true">⌕</span>
         <input type="search" placeholder="Search" />
       </label>
-      <section className="side-panel">
-        <h2>Subscribe to Premium</h2>
-        <p>
-          Subscribe to unlock new features and if eligible, receive a share of
-          revenue.
-        </p>
-        <button type="button">Subscribe</button>
-      </section>
       <section className="side-panel trends">
         <h2>What’s happening</h2>
         <div className="trend">
