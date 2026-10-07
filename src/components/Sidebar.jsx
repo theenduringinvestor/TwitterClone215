@@ -2,7 +2,6 @@ import xLogo from "../assets/X-Logo.png";
 
 const navItems = [
   ["⌂", "Home", true],
-  ["⌕", "Explore"],
   ["♧", "Notifications"],
   ["✉", "Messages"],
   ["▣", "Lists"],
