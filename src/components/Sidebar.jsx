@@ -7,7 +7,7 @@ const navItems = [
   ["✉", "Messages"],
   ["▣", "Lists"],
   ["♙", "Profile"],
-  ["•••", "More"],
+  ["•••", "Buy Issue"],
 ];
 
 function Sidebar({ onLogout }) {
