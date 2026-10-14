@@ -3,8 +3,6 @@ import "../styles/Signup.css";
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 function SignUp({ onSignIn }) {
-  const [name, setName] = useState("");
-  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
