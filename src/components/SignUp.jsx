@@ -19,18 +19,6 @@ function SignUp({ onSignIn }) {
       <div className="signup">
         <h1>Sign Up</h1>
         <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
           type="email"
           placeholder="Email"
           value={email}
