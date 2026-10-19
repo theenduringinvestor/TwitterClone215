@@ -1,5 +1,5 @@
 function Post({ post, onDelete }) {
-  const isOwnPost = post.handle === "@alexmorgan";
+  const isOwnPost = Boolean(post.isOwn);
 
   return (
     <article className="post">

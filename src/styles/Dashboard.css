@@ -146,6 +146,57 @@
 .dashboard__settings {
   font-size: 18px;
 }
+.profile-setup {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.4);
+}
+.profile-setup__form {
+  display: grid;
+  gap: 16px;
+  width: min(360px, 90vw);
+  padding: 24px;
+  border-radius: 16px;
+  background: #fff;
+}
+.profile-setup__form h2 {
+  margin: 0;
+}
+.profile-setup__form label {
+  display: grid;
+  gap: 6px;
+  font-weight: 700;
+}
+.profile-setup__form input {
+  padding: 10px 12px;
+  border: 1px solid #cfd9de;
+  border-radius: 8px;
+  font: inherit;
+}
+.profile-setup__form button {
+  padding: 10px;
+  border: 0;
+  border-radius: 999px;
+  background: #0f1419;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+.dashboard__error {
+  position: fixed;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  margin: 0;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: #f4212e;
+  color: #fff;
+}
 .dashboard__tabs {
   display: grid;
   grid-template-columns: 1fr 1fr;

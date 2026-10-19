@@ -8,6 +8,32 @@
   background-color: #000;
 }
 
+.app > .header,
+.app > .signin-page,
+.app > .signup-page {
+  width: 100%;
+}
+
+.signin-page,
+.signup-page {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  background-color: #000;
+}
+
+.signin-page input,
+.signup-page input {
+  background-color: #000;
+  color: #fff;
+  color-scheme: dark;
+}
+
+.signin-page input::placeholder,
+.signup-page input::placeholder {
+  color: #a7a7a7;
+}
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;
