@@ -14,6 +14,7 @@ import {
   setDoc,
 } from "firebase/firestore";
 import { auth, db } from "../firebase";
+import Profile from "./Profile";
 import ProfileSetup from "./ProfileSetup";
 import Rightbar from "./Rightbar";
 import Sidebar from "./Sidebar";
@@ -71,6 +72,7 @@ function Dashboard() {
   const [error, setError] = useState("");
   const [profile, setProfile] = useState(null);
   const [profileLoaded, setProfileLoaded] = useState(false);
+  const [activePage, setActivePage] = useState("home");
   const composerRef = useRef(null);
 
   useEffect(() => {
@@ -200,22 +202,29 @@ function Dashboard() {
   return (
     <section className="dashboard" aria-label="Home timeline">
       <Sidebar
+        activePage={activePage}
+        onHome={() => setActivePage("home")}
         onCompose={() => composerRef.current?.focus()}
         onLogout={handleLogout}
+        onProfile={() => setActivePage("profile")}
       />
       {error && (
         <p className="dashboard__error" role="alert">
           {error}
         </p>
       )}
-      <Timeline
-        posts={timelinePosts}
-        composerRef={composerRef}
-        draft={draft}
-        onDraftChange={setDraft}
-        onPost={handlePost}
-        onDelete={handleDelete}
-      />
+      {activePage === "profile" && profile ? (
+        <Profile profile={profile} onBack={() => setActivePage("home")} />
+      ) : (
+        <Timeline
+          posts={timelinePosts}
+          composerRef={composerRef}
+          draft={draft}
+          onDraftChange={setDraft}
+          onPost={handlePost}
+          onDelete={handleDelete}
+        />
+      )}
       <Rightbar />
       {profileLoaded && !profile && <ProfileSetup onSave={handleSaveProfile} />}
     </section>

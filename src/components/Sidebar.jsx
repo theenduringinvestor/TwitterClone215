@@ -12,7 +12,7 @@ const navItems = [
   ["•••", "Buy Issue"],
 ];
 
-function Sidebar({ onLogout }) {
+function Sidebar({ activePage, onHome, onLogout, onProfile }) {
   const [user, setUser] = useState(null);
   const [isAuthLoading, setIsAuthLoading] = useState(true);
 
@@ -34,9 +34,22 @@ function Sidebar({ onLogout }) {
       <nav className="dashboard__nav" aria-label="Primary navigation">
         {navItems.map(([icon, label, active]) => (
           <button
-            className={active ? "is-active" : ""}
+            className={
+              (label === "Home" && activePage === "home") ||
+              (label === "Profile" && activePage === "profile") ||
+              (active && !["Home", "Profile"].includes(label))
+                ? "is-active"
+                : ""
+            }
             key={label}
             type="button"
+            onClick={
+              label === "Home"
+                ? onHome
+                : label === "Profile"
+                  ? onProfile
+                  : undefined
+            }
           >
             <span aria-hidden="true">{icon}</span>
             <strong>{label}</strong>
