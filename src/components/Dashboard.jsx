@@ -15,6 +15,7 @@ import {
 } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import Profile from "./Profile";
+import EditProfile from "./EditProfile";
 import ProfileSetup from "./ProfileSetup";
 import Rightbar from "./Rightbar";
 import Sidebar from "./Sidebar";
@@ -213,8 +214,24 @@ function Dashboard() {
           {error}
         </p>
       )}
-      {activePage === "profile" && profile ? (
-        <Profile profile={profile} onBack={() => setActivePage("home")} />
+      {activePage === "edit-profile" && profile ? (
+        <EditProfile
+          profile={profile}
+          onCancel={() => setActivePage("profile")}
+          onSave={async ({ displayName }) => {
+            const saved = await handleSaveProfile({
+              displayName,
+              username: profile.username,
+            });
+            if (saved) setActivePage("profile");
+          }}
+        />
+      ) : activePage === "profile" && profile ? (
+        <Profile
+          profile={profile}
+          onBack={() => setActivePage("home")}
+          onEdit={() => setActivePage("edit-profile")}
+        />
       ) : (
         <Timeline
           posts={timelinePosts}
