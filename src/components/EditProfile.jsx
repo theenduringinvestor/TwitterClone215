@@ -3,6 +3,7 @@ import "../styles/EditProfile.css";
 
 function EditProfile({ profile, onSave, onCancel }) {
   const [displayName, setDisplayName] = useState(profile?.displayName ?? "");
+  const [bio, setBio] = useState(profile?.bio ?? "");
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -11,7 +12,7 @@ function EditProfile({ profile, onSave, onCancel }) {
 
     if (name.length === 0) return;
 
-    onSave({ displayName: name });
+    onSave({ displayName: name, bio: bio.trim() });
   }
 
   return (
@@ -26,6 +27,14 @@ function EditProfile({ profile, onSave, onCancel }) {
         value={displayName}
         onChange={(event) => setDisplayName(event.target.value)}
         maxLength={50}
+      />
+      <label htmlFor="edit-bio">Bio(optional)</label>
+      <textarea
+        id="edit-bio"
+        value={bio}
+        onChange={(event) => setBio(event.target.value)}
+        maxLength={160}
+        rows={4}
       />
       <button type="button" onClick={onCancel}>
         Cancel

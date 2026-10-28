@@ -8,6 +8,7 @@ function Profile({ profile, onBack, onEdit }) {
       </button>
       <h1>{profile.displayName}</h1>
       <p>@{profile.username}</p>
+      {profile.bio?.trim() && <p className="profile__bio">{profile.bio}</p>}
       <button type="button" onClick={onEdit}>
         Edit Profile
       </button>

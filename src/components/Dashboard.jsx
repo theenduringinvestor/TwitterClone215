@@ -99,13 +99,14 @@ function Dashboard() {
     };
   }, []);
 
-  async function handleSaveProfile({ displayName, username }) {
+  async function handleSaveProfile({ displayName, username, bio }) {
     const user = auth.currentUser;
     if (!user) return false;
     try {
       const data = { displayName, username };
-      await withTimeout(setDoc(doc(db, "users", user.uid), data));
-      setProfile(data);
+      if (bio !== undefined) data.bio = bio;
+      await withTimeout(setDoc(doc(db, "users", user.uid), data, { merge: true }));
+      setProfile((currentProfile) => ({ ...currentProfile, ...data }));
       setError("");
       return true;
     } catch (err) {
@@ -218,9 +219,10 @@ function Dashboard() {
         <EditProfile
           profile={profile}
           onCancel={() => setActivePage("profile")}
-          onSave={async ({ displayName }) => {
+          onSave={async ({ displayName, bio }) => {
             const saved = await handleSaveProfile({
               displayName,
+              bio,
               username: profile.username,
             });
             if (saved) setActivePage("profile");
