@@ -21,3 +21,16 @@
 .profile__back:hover {
   background: #eff3f4;
 }
+
+@media (max-width: 600px) {
+  .profile > button:not(.profile__back) {
+    min-height: 44px;
+    padding: 10px 18px;
+    border: 0;
+    border-radius: 999px;
+    background: #0f1419;
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+  }
+}

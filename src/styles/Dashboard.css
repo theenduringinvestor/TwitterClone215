@@ -4,8 +4,8 @@
   width: min(1230px, 100%);
   min-height: 100svh;
   margin: 0 auto;
-  background: #fff;
-  color: #0f1419;
+  background: #000;
+  color: #fff;
   text-align: left;
 }
 
@@ -13,13 +13,14 @@
   display: flex;
   flex-direction: column;
   padding: 8px 20px 16px 0;
-  border-right: 1px solid #eff3f4;
+  border-right: 1px solid #2f3336;
 }
 .dashboard__logo {
   width: 34px;
   height: 34px;
   margin: 4px 0 24px 16px;
   object-fit: contain;
+  filter: invert(1);
 }
 .dashboard__nav {
   display: grid;
@@ -31,7 +32,7 @@
 .post__actions button {
   border: 0;
   background: transparent;
-  color: #0f1419;
+  color: #fff;
   cursor: pointer;
 }
 .dashboard__nav button {
@@ -46,7 +47,7 @@
 }
 .dashboard__nav button:hover,
 .dashboard__nav .is-active {
-  background: #eff3f4;
+  background: #202327;
 }
 .dashboard__nav button span {
   width: 24px;
@@ -90,7 +91,7 @@
   border-radius: 999px;
 }
 .dashboard__account:hover {
-  background: #eff3f4;
+  background: #202327;
 }
 .dashboard__account-copy {
   display: grid;
@@ -101,7 +102,7 @@
   font-size: 14px;
 }
 .dashboard__account-copy small {
-  color: #536471;
+  color: #fff;
 }
 
 .avatar {
@@ -111,7 +112,7 @@
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: #0f1419;
+  background: #2f3336;
   color: #fff;
   font-weight: 700;
 }
@@ -128,7 +129,7 @@
 }
 .dashboard__timeline {
   min-width: 0;
-  border-right: 1px solid #eff3f4;
+  border-right: 1px solid #2f3336;
 }
 .dashboard__header {
   display: flex;
@@ -136,7 +137,7 @@
   justify-content: space-between;
   height: 54px;
   padding: 0 16px;
-  border-bottom: 1px solid #eff3f4;
+  border-bottom: 1px solid #2f3336;
 }
 .dashboard__header h1 {
   margin: 0;
@@ -160,7 +161,8 @@
   width: min(360px, 90vw);
   padding: 24px;
   border-radius: 16px;
-  background: #fff;
+  background: #16181c;
+  color: #fff;
 }
 .profile-setup__form h2 {
   margin: 0;
@@ -172,18 +174,23 @@
 }
 .profile-setup__form input {
   padding: 10px 12px;
-  border: 1px solid #cfd9de;
+  border: 1px solid #3e4348;
   border-radius: 8px;
+  background: #202327;
+  color: #fff;
   font: inherit;
 }
 .profile-setup__form button {
   padding: 10px;
   border: 0;
   border-radius: 999px;
-  background: #0f1419;
+  background: #1d9bf0;
   color: #fff;
   font-weight: 700;
   cursor: pointer;
+}
+.profile-setup__form button:hover {
+  background: #1a8cd8;
 }
 .dashboard__error {
   position: fixed;
@@ -200,22 +207,22 @@
 .dashboard__tabs {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-bottom: 1px solid #eff3f4;
+  border-bottom: 1px solid #2f3336;
 }
 .dashboard__tabs button {
   position: relative;
   padding: 16px;
   border: 0;
-  background: #fff;
-  color: #536471;
+  background: #000;
+  color: #fff;
   cursor: pointer;
   font-weight: 600;
 }
 .dashboard__tabs button:hover {
-  background: #f7f9f9;
+  background: #16181c;
 }
 .dashboard__tabs .is-active {
-  color: #0f1419;
+  color: #fff;
 }
 .dashboard__tabs .is-active::after {
   position: absolute;
@@ -232,7 +239,7 @@
   display: flex;
   gap: 12px;
   padding: 14px 16px 10px;
-  border-bottom: 1px solid #eff3f4;
+  border-bottom: 1px solid #2f3336;
 }
 .composer__body {
   flex: 1;
@@ -247,12 +254,12 @@
   border: 0;
   outline: 0;
   background: transparent;
-  color: #0f1419;
+  color: #fff;
   font: inherit;
   font-size: 20px;
 }
 .composer__body textarea::placeholder {
-  color: #536471;
+  color: #fff;
   opacity: 1;
 }
 .composer__footer {
@@ -272,10 +279,10 @@
   display: flex;
   gap: 12px;
   padding: 14px 16px;
-  border-bottom: 1px solid #eff3f4;
+  border-bottom: 1px solid #2f3336;
 }
 .post:hover {
-  background: #f7f9f9;
+  background: #16181c;
 }
 .post__content {
   flex: 1;
@@ -288,11 +295,11 @@
   font-size: 15px;
 }
 .post__meta span {
-  color: #536471;
+  color: #fff;
 }
 .post__meta button {
   margin-left: auto;
-  color: #536471;
+  color: #fff;
 }
 .post__meta button:hover {
   color: #f4212e;
@@ -309,7 +316,7 @@
 }
 .post__actions button {
   padding: 4px 0;
-  color: #536471;
+  color: #fff;
   font-size: 14px;
 }
 .post__actions button:hover {
@@ -329,24 +336,30 @@
   height: 42px;
   padding: 0 16px;
   border-radius: 999px;
-  background: #eff3f4;
-  color: #536471;
+  background: #202327;
+  color: #fff;
 }
 .search input {
   width: 100%;
   border: 0;
   outline: 0;
   background: transparent;
+  color: #fff;
   font-size: 15px;
+}
+.search input::placeholder {
+  color: #fff;
+  opacity: 1;
 }
 .side-panel {
   margin-top: 20px;
   padding: 16px;
   border-radius: 16px;
-  background: #f7f9f9;
+  background: #16181c;
 }
 .side-panel h2 {
   margin: 0 0 8px;
+  color: #fff;
   font-size: 20px;
   font-weight: 800;
 }
@@ -357,7 +370,7 @@
 }
 .side-panel button {
   padding: 9px 18px;
-  background: #0f1419;
+  background: #1d9bf0;
 }
 .trend {
   display: grid;
@@ -365,7 +378,7 @@
   padding: 12px 0;
 }
 .trend small {
-  color: #536471;
+  color: #fff;
   font-size: 13px;
 }
 .trend strong {
@@ -426,8 +439,8 @@
     justify-content: space-around;
     height: 54px;
     padding: 0;
-    border-top: 1px solid #eff3f4;
-    background: #fff;
+    border-top: 1px solid #2f3336;
+    background: #000;
   }
   .dashboard__logo,
   .dashboard__post-button,
